@@ -38,7 +38,7 @@ export const hero = {
 
   /** Stats shown below the CTA buttons */
   metrics: [
-    { value: "6+", label: "Years Exp." },
+    { value: "6+", label: "Years Experience" },
     { value: "10+", label: "Featured Apps" },
     { value: "3", label: "Companies" },
   ],
