@@ -85,7 +85,7 @@ export function Navbar({ logoSrc }) {
     const onScroll = () => {
       setScrolled(window.scrollY > 30);
       // Update active link
-      const sections = ['home','about','skills','experience','projects','education','contact'];
+      const sections = ['home','about','skills','experience','projects','education','certifications','contact'];
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
         if (el && window.scrollY >= el.offsetTop - 100) {
@@ -104,6 +104,7 @@ export function Navbar({ logoSrc }) {
     { href: '#experience', label: 'Experience' },
     { href: '#projects', label: 'Portfolio' },
     { href: '#education', label: 'Education' },
+    { href: '#certifications', label: 'Certifications' },
   ];
 
   return (
@@ -196,6 +197,13 @@ export function SectionLabel({ icon, children }) {
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
             <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
+          </svg>
+        );
+      case 'certifications':
+        return (
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="8" r="7" />
+            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
           </svg>
         );
       case 'profiles':

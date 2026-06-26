@@ -7,6 +7,7 @@ import {
   experienceSection,
   projectsSection,
   educationSection,
+  certificationsSection,
   contactSection,
   footer,
 } from './data/content';
@@ -118,6 +119,33 @@ function MetricCountUp({ end, delay = 200 }) {
   return <span>{count}</span>;
 }
 
+function getProviderLogo(provider) {
+  switch (provider.toLowerCase()) {
+    case 'sololearn':
+      return (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm1.706 17.585c-.958.957-2.515.957-3.473 0l-4.52-4.52c-.957-.958-.957-2.515 0-3.473l4.52-4.52c.958-.957 2.515-.957 3.473 0l4.52 4.52c.957.958.957 2.515 0 3.473l-4.52 4.52z"/>
+        </svg>
+      );
+    case 'google digital garage':
+    case 'google':
+      return (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.113-5.136 4.113-3.072 0-5.561-2.49-5.561-5.561s2.49-5.561 5.561-5.561c1.378 0 2.633.5 3.6 1.326l3.197-3.197C18.796 3.42 15.744 2 12.24 2 6.58 2 2 6.58 2 12.24s4.58 10.24 10.24 10.24c5.795 0 10.24-4.113 10.24-10.24 0-.693-.082-1.353-.223-1.955H12.24z"/>
+        </svg>
+      );
+    case 'skillup':
+      return (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+          <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
+
 function getMetricIcon(idx) {
   switch (idx) {
     case 0: return <ExperienceIcon />;
@@ -129,15 +157,11 @@ function getMetricIcon(idx) {
 
 // Inline SVG Icon Helper components
 const AndroidIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M17.523 15.3c-.15.22-.38.38-.65.46-.27.08-.56.07-.82-.04-.51-.23-1.07-.35-1.64-.35s-1.13.12-1.64.35c-.26.11-.55.12-.82.04-.27-.08-.5-.24-.65-.46-.71-1.02-1.1-2.24-1.1-3.5 0-1.26.39-2.48 1.1-3.5.15-.22.38-.38.65-.46.27-.08.56-.07.82.04.51.23 1.07.35 1.64.35s1.13-.12 1.64.35c.26-.11.55-.12.82-.04.27.08.5.24.65.46.71 1.02 1.1 2.24 1.1 3.5 0 1.26-.39 2.48-1.1 3.5zm-5.11-8.58c.28 0 .5-.22.5-.5s-.22-.5-.5-.5-.5.22-.5.5.22.5.5.5zm5.18 0c.28 0 .5-.22.5-.5s-.22-.5-.5-.5-.5.22-.5.5.22.5.5.5zM20.37 8.3c-.34-.73-.85-1.37-1.48-1.89l1.24-2.15c.08-.14.03-.32-.11-.4l-.87-.5c-.14-.08-.32-.03-.4.11l-1.25 2.16c-1.12-.66-2.4-.1.3-3.69-.1L13.5 3.37c-.14-.08-.32-.03-.4.11L11.85 5.63c-.63-.52-1.35-.91-2.12-1.15L8.49 2.33c-.08-.14-.26-.19-.4-.11l-.87.5c-.14.08-.19.26-.11.4l1.24 2.15c-.63.52-1.14 1.16-1.48 1.89L3.5 8.3c-.14.08-.19.26-.11.4l.87.5c.08.14.26.19.4.11l3.37-1.95c.57.9 1.45 1.57 2.47 1.89V19.5c0 .28.22.5.5.5h2c.28 0 .5-.22.5-.5v-4.75h1.5V19.5c0 .28.22.5.5.5h2c.28 0 .5-.22.5-.5v-10.25c1.02-.32 1.9-.99 2.47-1.89l3.37 1.95c.14.08.32.03.4-.11l.87-.5c.08-.14.03-.32-.11-.4L20.37 8.3z"/>
-  </svg>
+  <img src="/Android.png" alt="Android" className="link-icon-img" />
 );
 
 const AppleIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.22.67-2.94 1.51-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.58 2.98-1.43z"/>
-  </svg>
+  <img src="/iOS.png" alt="iOS" className="link-icon-img" />
 );
 
 const LinkedInIcon = () => (
@@ -203,6 +227,7 @@ function App() {
   const expReveal = useReveal();
   const projReveal = useReveal();
   const eduReveal = useReveal();
+  const certsReveal = useReveal();
   const contactReveal = useReveal();
 
   useEffect(() => {
@@ -511,7 +536,13 @@ function App() {
             {projectsSection.projects.map((proj, idx) => (
               <div key={idx} className="g-card project-card">
                 <div className="project-header">
-                  <div className="project-icon">{proj.icon || '📱'}</div>
+                  <div className="project-icon">
+                    {proj.icon && (typeof proj.icon === 'string' && (proj.icon.includes('/') || proj.icon.includes('.'))) ? (
+                      <img src={proj.icon} alt={proj.name} />
+                    ) : (
+                      proj.icon || '📱'
+                    )}
+                  </div>
                   <div className="project-links">
                     {proj.android && (
                       <a href={proj.android} className="project-link" title="Download for Android" target="_blank" rel="noreferrer">
@@ -558,6 +589,43 @@ function App() {
                     <span className="edu-tag" style={{ color: 'var(--emerald)', fontWeight: 600 }}>📊 {edu.gpa}</span>
                   </div>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications Section */}
+      <section id="certifications" className="certifications-section" ref={certsReveal}>
+        <div className="container">
+          <SectionLabel icon="certifications">{certificationsSection.sectionLabel}</SectionLabel>
+          <h2 className="section-heading">{certificationsSection.sectionHeading}</h2>
+          <p className="section-sub">{certificationsSection.sectionSub}</p>
+
+          <div className="certs-grid">
+            {certificationsSection.certifications.map((cert, idx) => (
+              <div key={idx} className="g-card cert-card">
+                <div className="cert-header">
+                  <div className="cert-provider-badge">
+                    {getProviderLogo(cert.provider)}
+                    <span>{cert.provider}</span>
+                  </div>
+                  {cert.link && (
+                    <a href={cert.link} target="_blank" rel="noreferrer" className="cert-link" title="Verify Certificate">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                        <polyline points="15 3 21 3 21 9" />
+                        <line x1="10" y1="14" x2="21" y2="3" />
+                      </svg>
+                    </a>
+                  )}
+                </div>
+                <h3 className="cert-name">{cert.name}</h3>
+                {cert.no && (
+                  <div className="cert-no">
+                    <span>ID: {cert.no}</span>
+                  </div>
+                )}
               </div>
             ))}
           </div>

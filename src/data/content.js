@@ -3,6 +3,12 @@
 //  Edit this file to update any text, links, or data on the site.
 // ============================================================
 
+import smartmoveIcon from "../assets/1.webp";
+import photerraIcon from "../assets/2.webp";
+import rentalIcon from "../assets/3.webp";
+import nownextIcon from "../assets/4.webp";
+import asthmaIcon from "../assets/5.webp";
+
 // ─── Personal Info ───────────────────────────────────────────
 export const personal = {
   name: "Darshan Rana",
@@ -198,36 +204,38 @@ export const projectsSection = {
       description:
         "A digital health initiative that combines expert asthma education, videocalls, and tailored tools to help you better manage your asthma, all in one convenient place. Whether you're newly diagnosed or have lived with asthma for years, Asthma Connect offers expert guidance, easy-to-use tools, and personalised education to support your asthma journey and improve your health.",
       tech: ["React Native", "WebRTC", "Redux", "Android", "iOS"],
-      android: "#",
-      ios: "#",
-      icon: "🫁",
+      android:
+        "https://play.google.com/store/apps/details?id=com.connect.asthma",
+      ios: "https://apps.apple.com/au/app/asthma-connect/id6746532852",
+      icon: asthmaIcon,
     },
     {
       name: "NowNext: Build Better Habits",
       description:
         "NowNext helps you build small, simple habits that actually stick. Prioritising your own wellbeing can feel overwhelming. It can start with small steps that fit your daily routine and last a lifetime.",
       tech: ["React Native", "Expo", "SQLite", "Local Notifications"],
-      android: "#",
-      ios: "#",
-      icon: "⏱️",
+      android: "https://play.google.com/store/apps/details?id=com.ila.nownext",
+      ios: "https://apps.apple.com/au/app/nownext/id6748437243",
+      icon: nownextIcon,
     },
     {
       name: "Rental Car",
       description:
         "Budget Car and Truck Rental of Atlanta has the best value in car rental with great rates on a wide variety of popular new cars, trucks, and vans. Our vehicles have more features, more fully loaded options, and tend to be newer with fewer miles on them than the competition.",
       tech: ["React Native", "Google Maps API", "Stripe API", "Redux"],
-      android: "#",
-      ios: "#",
-      icon: "🚗",
+      android:
+        "https://play.google.com/store/apps/details?id=com.budget.betterway",
+      ios: "https://apps.apple.com/us/app/betterway-rentals/id6463114140",
+      icon: rentalIcon,
     },
     {
       name: "Photerra Travel",
       description:
         "A social, all-in-one travel app for local and global travel. Photerra allows you to perform detailed searches of unique, geolocated spots that other people have already explored and shared. Every geolocated spot can be searched, saved, used for navigation and to plan trips using Photerra's Itinerary feature - which also allows for collaborative trip planning with friends.",
       tech: ["React Native", "Geolocation", "Node.js", "Firebase"],
-      android: "#",
-      ios: "#",
-      icon: "🗺️",
+      android: "https://play.google.com/store/apps/details?id=com.app.photerra",
+      ios: "https://apps.apple.com/us/app/photerra/id1621490090",
+      icon: photerraIcon,
     },
     {
       name: "SmartMove",
@@ -240,9 +248,10 @@ export const projectsSection = {
         "Android",
         "iOS",
       ],
-      android: "#",
-      ios: "#",
-      icon: "📦",
+      android:
+        "https://play.google.com/store/apps/details?id=com.smartmove.app",
+      ios: "https://apps.apple.com/ch/app/smartmove-move-smarter/id6477779179",
+      icon: smartmoveIcon,
     },
   ],
 };
@@ -263,7 +272,7 @@ export const educationSection = {
       icon: "🎓",
     },
     {
-      degree: "H.S.C.",
+      degree: "Higher Secondary Certificate (Science Stream)",
       institution: "T. & T.V Nanpura",
       location: "Surat, Gujarat, India",
       period: "2014 – 2016",
@@ -299,6 +308,57 @@ export const profilesSection = {
       url: "mailto:ranadarshan15@gmail.com",
       color: "var(--violet-light)",
       icon: "mail",
+    },
+  ],
+};
+
+// ─── Certifications Section ──────────────────────────────────
+export const certificationsSection = {
+  sectionLabel: "Certifications",
+  sectionHeading: "Badges & Credentials",
+  sectionSub: "Verifiable achievements from external academies and platforms.",
+  certifications: [
+    {
+      provider: "SoloLearn",
+      name: "HTML",
+      no: "",
+      link: "https://www.sololearn.com/Certificate/1014-17842544/pdf/",
+    },
+    {
+      provider: "SoloLearn",
+      name: "CSS",
+      no: "",
+      link: "https://www.sololearn.com/Certificate/1023-17842544/pdf/",
+    },
+    {
+      provider: "SoloLearn",
+      name: "JavaScript",
+      no: "",
+      link: "https://www.sololearn.com/certificates/course/en/17842544/1024/landscape/png",
+    },
+    {
+      provider: "SoloLearn",
+      name: "React + Redux",
+      no: "",
+      link: "https://www.sololearn.com/Certificate/1097-17842544/pdf/",
+    },
+    {
+      provider: "SoloLearn",
+      name: "SQL",
+      no: "",
+      link: "https://www.sololearn.com/certificates/course/en/17842544/1060/landscape/png",
+    },
+    {
+      provider: "SkillUp",
+      name: "JavaScript For Beginner",
+      no: "",
+      link: "https://simpli.app.link/wHZpxcxknnb",
+    },
+    {
+      provider: "Google Digital Garage",
+      name: "Fundamentals of digital marketing",
+      no: "5CJ C5N GNH",
+      link: "https://learndigital.withgoogle.com/a6111289-4dc2-4131-a433-f54ebb5082d7",
     },
   ],
 };
@@ -339,6 +399,7 @@ export const footer = {
     { label: "Experience", href: "#experience" },
     { label: "Projects", href: "#projects" },
     { label: "Education", href: "#education" },
+    { label: "Certifications", href: "#certifications" },
   ],
 };
 
