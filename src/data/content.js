@@ -341,3 +341,5 @@ export const footer = {
     { label: "Education", href: "#education" },
   ],
 };
+
+// Trigger redeployment
