@@ -1,5 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 
+// SVG Icons used inside shared components
+const SendIcon = () => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+    <line x1="22" y1="2" x2="11" y2="13" />
+    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+  </svg>
+);
+
+const DownloadIcon = () => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+    <polyline points="7 10 12 15 17 10" />
+    <line x1="12" y1="15" x2="12" y2="3" />
+  </svg>
+);
+
 // Simple reveal hook
 export function useReveal() {
   const ref = useRef(null);
@@ -86,7 +102,7 @@ export function Navbar({ logoSrc }) {
     { href: '#about', label: 'About' },
     { href: '#skills', label: 'Skills' },
     { href: '#experience', label: 'Experience' },
-    { href: '#projects', label: 'Projects' },
+    { href: '#projects', label: 'Portfolio' },
     { href: '#education', label: 'Education' },
   ];
 
@@ -109,13 +125,25 @@ export function Navbar({ logoSrc }) {
             </li>
           ))}
         </ul>
-        <a
-          href="#contact"
-          className={`nav-cta${menuOpen ? ' mobile-open' : ''}`}
-          onClick={() => setMenuOpen(false)}
-        >
-          ✉ Let's Talk
-        </a>
+        <div className="nav-actions">
+          <a
+            href="/Darshan-resume.pdf"
+            download="Darshan-Rana-Resume.pdf"
+            className="nav-resume-btn"
+            title="Download Resume"
+          >
+            <DownloadIcon />
+            Resume
+          </a>
+          <a
+            href="#contact"
+            className={`nav-cta${menuOpen ? ' mobile-open' : ''}`}
+            onClick={() => setMenuOpen(false)}
+          >
+            <SendIcon />
+            Let's Talk
+          </a>
+        </div>
         <button
           className="nav-hamburger"
           onClick={() => setMenuOpen(o => !o)}
@@ -127,5 +155,78 @@ export function Navbar({ logoSrc }) {
         </button>
       </div>
     </nav>
+  );
+}
+
+// Section Label with Icon Component
+export function SectionLabel({ icon, children }) {
+  const renderIcon = () => {
+    switch (icon) {
+      case 'user':
+        return (
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+        );
+      case 'skills':
+        return (
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="16 18 22 12 16 6" />
+            <polyline points="8 6 2 12 8 18" />
+          </svg>
+        );
+      case 'experience':
+        return (
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+          </svg>
+        );
+      case 'projects':
+        return (
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+            <line x1="12" y1="17" x2="12" y2="21" />
+          </svg>
+        );
+      case 'education':
+        return (
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+            <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
+          </svg>
+        );
+      case 'profiles':
+        return (
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>
+        );
+      case 'contact':
+        return (
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
+        );
+      default:
+        return null;
+    }
+  };
+
+  const hasIcon = !!icon;
+
+  return (
+    <div className={`section-label${hasIcon ? ' with-icon' : ''}`}>
+      {hasIcon && (
+        <span className="section-label-icon">
+          {renderIcon()}
+        </span>
+      )}
+      <span className="section-label-text">{children}</span>
+    </div>
   );
 }
