@@ -402,5 +402,3 @@ export const footer = {
     { label: "Certifications", href: "#certifications" },
   ],
 };
-
-// Trigger redeployment
